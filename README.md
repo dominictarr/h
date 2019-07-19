@@ -1,36 +1,43 @@
 # h
 
-generate HTML from javascript the easy way.
+generate HTML from javascript array structures
+
+like hyperscript but with arrays instead of functions.
+runs easily on the server and web workers, without a HtmlElement polyfil.
 
 ## Example
 
 ``` js
 
-document.body.appendChild(
-  h('div#page',
-    h('div#header',
-      h('h1.classy', 'h')),
-    h('div#menu', { style: { float: 'left', width: '200px' } },
-      h('ul',
-        h('li', 'one'),
-        h('li', 'two'),
-        h('li', 'three'))),
-    h('div#content', {style: {float: 'left'} },
-      h('h2', 'content title'),
-      h('p', 
+var toHTML = require('h')
+
+toHTML(
+  ['div#page',
+    ['div#header',
+      ['h1.classy', 'h')),
+    ['div#menu', { style: 'float: left, width: 200px' } },
+      ['ul',
+        ['li', 'one'],
+        ['li', 'two'],
+        ['li', 'three']]],
+    ['div#content', {style: 'float: left;' },
+      ['h2', 'content title'],
+      ['p', 
         "so it's just like a templating engine,\n",
-        "but easy to use inline with javascript\n"),
-      h('p', 
+        "but easy to use inline with javascript\n"],
+      ['p', 
         "the intension is for this to be used to create\n",
-        "reusable, interactive html widgets. ")))
+        "reusable, interactive html widgets. "]]]
 )
 
 ```
 
-## h (tag, attrs, [text?, Elements?,...])
+## toHTML (ary)
 
-
-Create an `HTMLElement`. first argument must be the tag name.
+Create some html from an array structure.
+If the first element in the array is a string, that's the tag name.
+if it is an array of arrays, each item is mapped through `toHTML`
+and the results are concatenated.
 
 ### classes & id
 
@@ -45,35 +52,19 @@ If an `{}` object is passed in, it's values will be used to set attributes.
 h('a', {href: 'https://npm.im/h'}, 'h')
 ```
 
-If an attribute is a function, then it will be registered as an event listener.
+html attributes names must be alphanumeric but may have hypens.
+attribute values will be escaped with `html-escape`.
 
-``` js
+### innerHTML: non-escaped html content.
 
-h('a', {href: '#', click: function () {
-  alert('you are 1,000,000th visitor!'
-  return false
-}
-
-```
-
-If an attribute has a style property, then that will be handled specially.
-
-``` js
-
-h('h1.fun', {style: {font: 'comic sans MS'}}, 'happy birthday!')
-
-```
-
-You may pass in attributes in multiple positions, it's no problem!
+sometimes it is necessary to output non-escaped html,
+for example, rendered markdown, or the output of another templating library.
+to do this, use the `{innerHTML:html}` attribute. Note, this will cause any
+following children to be ignored.
 
 ### children - string
 
-If an argument is a string, a TextNode is created in that position.
-
-### children - HTMLElement
-
-If a argument is a HTMLELement, for example, the return value of a call to `h`
-thats cool too.
+If an argument is a string, it will be escaped with `html-escape`
 
 ### children - null.
 
@@ -85,14 +76,13 @@ Each item in the array is treated like a ordinary child. (string or HTMLElement)
 this is uesful when you want to iterate over an object:
 
 ```
-
-h('table',
+['table',
   Object.keys(obj).map(function (k) {
-    return h('tr'
-      h('th', k),
-      h('td', obj[k])
-    )
-  })
+    return ['tr'
+      ['th', k],
+      ['td', obj[k]]
+    ]
+  }]
 
 ```
 
