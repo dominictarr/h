@@ -7,13 +7,16 @@
     "url": "git://github.com/dominictarr/h.git"
   },
   "dependencies": {
+    "cssesc": "^3.0.0",
+    "html-escape": "^2.0.0"
   },
   "devDependencies": {
-    "tap": "0.3.0"
+    "hyperscript": "^2.0.2",
+    "tape": "^4.11.0"
   },
   "scripts": {
-    "test": "tap test"
+    "test": "tape test/*.js"
   },
   "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
-  "license": "MIT"  
+  "license": "MIT"
 }
