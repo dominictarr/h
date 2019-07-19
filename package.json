@@ -17,6 +17,6 @@
   "scripts": {
     "test": "tape test/*.js"
   },
-  "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "author": "'Dominic Tarr' @EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519",
   "license": "MIT"
 }
