@@ -32,12 +32,16 @@ toHTML(
 
 ```
 
-## toHTML (ary)
+## toHTML (ary, options)
 
 Create some html from an array structure.
 If the first element in the array is a string, that's the tag name.
 if it is an array of arrays, each item is mapped through `toHTML`
 and the results are concatenated.
+
+### Options
+
+- `options.silent` -- suppress `console.log` output when `true` (_default:_ `false`)
 
 ### classes & id
 

@@ -23,11 +23,11 @@ function isObject (o) {
   return o && 'object' == typeof o && !isArray(o)
 }
 
-module.exports = function toHTML (ary) {
+module.exports = function toHTML (ary, options = {}) {
   if(isString(ary)) return escape(ary)
   var str = '', innerHTML
   if(isArray(ary) && ary.every(isArray)) {
-    return ary.map(toHTML).join('')
+    return ary.map(function(elem){return toHTML(elem, options)}).join('')
   }
   if(isArray(ary)) {
     var i = 1, tag, attrs, innerHTML
@@ -59,7 +59,9 @@ module.exports = function toHTML (ary) {
     if(_class) str += ' class="'+_class+'"'
     if(id) str += ' id="'+id+'"'
 
-    console.log("ARY", isObject(ary[1]), ary, attrs, innerHTML)
+    if(options.silent !== true) {
+      console.log("ARY", isObject(ary[1]), ary, attrs, innerHTML)
+    }
     if(!attrs) str += '>'
     else if(attrs.innerHTML) {
       str +='>'
@@ -81,9 +83,9 @@ module.exports = function toHTML (ary) {
     else
       for(;i < ary.length; i++) {
         if(isArray(ary[i]) && isArray(ary[i][0]))
-          str += ary[i].map(toHTML).join('')
+          str += ary[i].map(function(elem){return toHTML(elem, options)}).join('')
         else
-          str += toHTML(ary[i])
+          str += toHTML(ary[i], options)
       }
     str += '</'+tag+'>'
     return str
