@@ -1,10 +1,16 @@
 {
   "name": "h",
+  "description": "Generate HTML from javascript array structures",
   "version": "1.0.0",
-  "homepage": "https://github.com/dominictarr/h",
+  "homepage": "https://github.com/politics-rewired/h",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dominictarr/h.git"
+    "url": "git://github.com/politics-rewired/h.git"
+  },
+  "author": "'Dominic Tarr' @EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519",
+  "license": "MIT",
+  "scripts": {
+    "test": "tape test/*.js"
   },
   "dependencies": {
     "cssesc": "^3.0.0",
@@ -13,10 +19,5 @@
   "devDependencies": {
     "hyperscript": "^2.0.2",
     "tape": "^4.11.0"
-  },
-  "scripts": {
-    "test": "tape test/*.js"
-  },
-  "author": "'Dominic Tarr' @EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519",
-  "license": "MIT"
+  }
 }
