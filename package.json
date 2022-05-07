@@ -1,5 +1,5 @@
 {
-  "name": "h",
+  "name": "@rewired/h",
   "description": "Generate HTML from javascript array structures",
   "version": "1.0.0",
   "homepage": "https://github.com/politics-rewired/h",
