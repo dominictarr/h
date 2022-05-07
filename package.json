@@ -24,7 +24,8 @@
     "test": "tape test/*.js",
     "release": "standard-version",
     "commit": "git-cz",
-    "commit:retry": "git-cz --retry"
+    "commit:retry": "git-cz --retry",
+    "prepare": "husky install"
   },
   "dependencies": {
     "cssesc": "^3.0.0",
@@ -36,7 +37,8 @@
     "commitizen": "^4.2.4",
     "hyperscript": "^2.0.2",
     "standard-version": "^9.3.2",
-    "tape": "^4.11.0"
+    "tape": "^4.11.0",
+    "husky": "^7.0.0"
   },
   "config": {
     "commitizen": {
