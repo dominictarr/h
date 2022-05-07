@@ -16,6 +16,10 @@
       "url": "https://benjaminchrobot.com"
     }
   ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "tape test/*.js"
   },
