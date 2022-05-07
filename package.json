@@ -9,6 +9,13 @@
   },
   "author": "'Dominic Tarr' @EMovhfIrFk4NihAKnRNhrfRaqIhBv1Wj8pTxJNgvCCY=.ed25519",
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Benjamin Chrobot",
+      "email": "benjamin.chrobot@alum.mit.edu",
+      "url": "https://benjaminchrobot.com"
+    }
+  ],
   "scripts": {
     "test": "tape test/*.js"
   },
