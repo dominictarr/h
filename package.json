@@ -21,7 +21,8 @@
     "index.js"
   ],
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js",
+    "release": "standard-version"
   },
   "dependencies": {
     "cssesc": "^3.0.0",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "hyperscript": "^2.0.2",
+    "standard-version": "^9.3.2",
     "tape": "^4.11.0"
   }
 }
