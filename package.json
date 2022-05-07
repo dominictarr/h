@@ -22,15 +22,25 @@
   ],
   "scripts": {
     "test": "tape test/*.js",
-    "release": "standard-version"
+    "release": "standard-version",
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry"
   },
   "dependencies": {
     "cssesc": "^3.0.0",
     "html-escape": "^2.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "commitizen": "^4.2.4",
     "hyperscript": "^2.0.2",
     "standard-version": "^9.3.2",
     "tape": "^4.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
